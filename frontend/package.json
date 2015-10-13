@@ -1,0 +1,12 @@
+{
+  "name": "WorldDisasterMaps",
+  "version": "1.0.0",
+  "description": "AngularJs Front End for World Disaster Maps Projects",
+  "main": "index.html",
+  "scripts": {
+     "start": "http-server -a localhost -p 8000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tauren Kristich",
+  "license": "MIT"
+}
