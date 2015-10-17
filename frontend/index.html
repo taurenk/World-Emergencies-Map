@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="disasterMaps">
 <head>
     <meta charset="utf-8">
     <title>World Disaster Maps</title>
@@ -10,40 +10,34 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css"/>
 
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_HERE"></script>
-
     <!-- JS Source -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
-    <script src="https://rawgithub.com/arunisrael/angularjs-geolocation/master/dist/angularjs-geolocation.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
+
+    <!-- Google maps JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+    <script src="http://rawgit.com/angular-ui/angular-google-maps/2.0.X/dist/angular-google-maps.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+
 </head>
 <body>
 <div class="container">
     <div class="header">
         <ul class="nav nav-pills pull-right">
-            <li active><a href="">Join the Team</a></li>
-            <li disabled><a href="">Find Teammates</a></li>
+            <li active><a href="">Help us!</a></li>
+            <li disabled><a href="">Testing</a></li>
         </ul>
         <h3 class="text-muted">World Disaster Maps</h3>
     </div>
     <!-- Map and Side Panel -->
     <div class="row content">
-        <!-- Google Map -->
-        <div class="col-md-7">
-            <div id="map"><img src="holder.js/645x645"></div>
-        </div>
-        <!-- Side Panel -->
-        <div class="col-md-5">
-            <div class="panel panel-default">
-                <!-- Panel Title -->
-                <div class="panel-heading">
-                    <h2 class="panel-title text-center">Find Me <span class="glyphicon glyphicon-map-marker"></span></h2>
-                </div>
-                <!-- Panel Body -->
-            </div>
-        </div>
+        <div ui-view></div>
     </div>
     <hr/>
     <!-- Footer -->
