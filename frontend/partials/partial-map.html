@@ -1,9 +1,23 @@
 
-<!-- Side Panel -->
-<div class="col-md-5">
-    <div class="panel-heading">
-        <h2 class="panel-title text-center">Locate Me<span class="glyphicon glyphicon-map-marker"></span></h2>
-    </div>
+
+<div class="row">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options"></ui-gmap-google-map>
 </div>
 
-<ui-gmap-google-map center="map.center" zoom="map.zoom" options="options"></ui-gmap-google-map>
+<div class="row">
+    <div class="col-4">
+        <div class="panel-heading">
+            <h2 class="panel-title text-center">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                Your Current Location: {{ coords }}
+            </h2>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="panel-heading">
+            Test Data
+        </div>
+    </div>
+
+
+</div>
