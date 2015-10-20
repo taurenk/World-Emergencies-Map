@@ -1,7 +1,15 @@
 
 
 <div class="row">
-    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options"></ui-gmap-google-map>
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+        <ui-gmap-markers models="markers" coords="'self'" modelsbyref="false" click="onClick" />
+            <ui-gmap-windows show="show">
+                <div ng-non-bindable>
+                    {{title}}
+                    <p>{{content}}</p>
+                </div>
+            </ui-gmap-windows>
+    </ui-gmap-google-map>
 </div>
 
 <div class="row">
@@ -15,7 +23,8 @@
     </div>
     <div class="col-4">
         <div class="panel-heading">
-            Test Data
+            Test Data: {{ testData }}
+            Test Data: {{ $scope.testData }}
         </div>
     </div>
 
