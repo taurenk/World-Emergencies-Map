@@ -7,7 +7,7 @@ appServices.factory('USGSApi', ['$http', function ($http) {
 
     return {
         getEarthquakes: function () {
-            return $http.get(baseUrl + '&starttime=2015-10-19&endtime=2015-10-19' );
+            return $http.get(baseUrl + '&starttime=2015-10-18&endtime=2015-10-19&minmagnitude=3.0' );
         }
     }
 

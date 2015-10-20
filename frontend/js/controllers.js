@@ -19,17 +19,25 @@ appControllers.controller('mapController', function($scope, USGSApi, geolocation
         model.show = !model.show;
     };
 
-    // Set Markers
+    // Set Markers - TODO; service to handle current markers
     $scope.markers = [];
     var marker1 = {id: 1, latitude: 37.769, longitude: -122.44, title:'Test Marker!', content: 'content. ', show: false};
     $scope.markers.push(marker1);
 
 
 
-
+    // Should be some sort of service
     $scope.testData = USGSApi.getEarthquakes()
         .success(function (response) {
-            $scope.testData = response;
+            $scope.testData = response['features'];
+            for (x in response['features']) {
+                data = {id: 'eq'+x, title: $scope.testData[x]['properties']['title'], show: false,
+                        content: 'mag: ' + $scope.testData[x]['properties']['mag'],
+                        latitude: $scope.testData[x]['geometry']['coordinates'][1],
+                        longitude: $scope.testData[x]['geometry']['coordinates'][0]};
+                $scope.markers.push(data);
+            };
+
         })
         .error(function (response) {
             $scope.testData = response;
