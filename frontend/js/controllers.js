@@ -1,7 +1,7 @@
 
 var appControllers = angular.module('appControllers', []);
 
-appControllers.controller('mapController', function($scope, USGSApi, geolocation){
+appControllers.controller('mapController', function($scope, USGSApi, TsunamiApi, geolocation){
 
     $scope.markers = [];
     $scope.options = {scrollwheel: false};
@@ -43,6 +43,11 @@ appControllers.controller('mapController', function($scope, USGSApi, geolocation
             $scope.testData = response;
         });
 
-
-
+    $scope.tsunamiData = TsunamiApi.getUSTusnamis()
+        .success(function(data) {
+            $scope.tsunamiData = data;
+        })
+        .error(function(errorResponse){
+                $scope.tsunamiData = 'Error: ' + errorResponse;
+         });
 });
