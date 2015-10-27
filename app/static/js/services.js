@@ -15,12 +15,11 @@ appServices.factory('USGSApi', ['$http', function ($http) {
 
 
 appServices.factory('TsunamiApi', ['$http', function ($http) {
-    //delete $http.defaults.headers.common['X-Requested-With'];
-     $http.defaults.useXDomain = true;
+
     return {
         getUSTusnamis: function () {
             //return $http.get('http://ntwc.arh.noaa.gov/events/xml/PAAQCAP.xml');
-            return $http.get('http://wcatwc.arh.noaa.gov/cap/v1.1/WEAK53CAP.xml');
+            return $http.get('http://127.0.0.1:5000/tsunamis');
         }
     }
 
