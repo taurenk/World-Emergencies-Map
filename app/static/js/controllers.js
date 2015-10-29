@@ -9,7 +9,7 @@ appControllers.controller('mapController', function($scope, USGSApi, TsunamiApi,
     geolocation.getLocation()
         .then(function(data){
             $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
-            $scope.map = {center: {latitude: data.coords.latitude, longitude: data.coords.longitude }, zoom: 10 };
+            $scope.map = {center: {latitude: data.coords.latitude, longitude: data.coords.longitude }, zoom: 10};
         })
         .catch(function(response) {
              $scope.map = {center: {latitude: 51.219053, longitude: 4.404418 }, zoom: 1 };

@@ -9,6 +9,12 @@
                     <p>{{content}}</p>
                 </div>
             </ui-gmap-windows>
+
+        	<ui-gmap-map-control
+    			template="static/partials/partial-map-controller.html" position="top-right"
+                index="-1" controller='mapController'>
+    		</ui-gmap-map-control>
+
     </ui-gmap-google-map>
 </div>
 
