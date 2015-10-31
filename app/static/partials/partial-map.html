@@ -2,7 +2,10 @@
 
 <div class="row">
     <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
-        <ui-gmap-markers models="markers" coords="'self'" modelsbyref="false" click="onClick" />
+
+        <ui-gmap-markers models="markers.earthquakes" coords="'self'" modelsbyref="false" click="onClick"
+                          options="markers.earthquakes.options"  />
+
             <ui-gmap-windows show="show">
                 <div ng-non-bindable>
                     {{title}}
