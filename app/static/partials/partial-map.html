@@ -8,8 +8,11 @@
 
             <ui-gmap-windows show="show">
                 <div ng-non-bindable>
-                    {{title}}
-                    <p>{{content}}</p>
+                    <h5>{{title}}</h5>
+                    <p>Magnitude: {{magnitude}}</p>
+                    <p>Time: {{time | date:'yyyy-MM-dd HH:mm:ss Z'}} </p>
+                    <p>Place: {{place}}</p>
+                    <p>More Details: {{detail}}</p>
                 </div>
             </ui-gmap-windows>
 
@@ -34,6 +37,7 @@
         <div class="panel-heading">
         </div>
     </div>
-    TEST DATA: {{ tsunamiData }}
+    Test Data: {{testData}}
+    Tsunami DATA: {{ tsunamiData }}
 
 </div>

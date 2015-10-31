@@ -22,13 +22,16 @@ appControllers.controller('mapController', function($scope, USGSApi, TsunamiApi,
     // Set Markers - TODO; service to handle making markers
     $scope.markers.earthquakes = [];
     $scope.markers.earthquakes.options = {icon:'/static/markers/earthquake-3.png'};
-    // Should be some sort of service..
+
     $scope.testData = USGSApi.getEarthquakes()
         .success(function (response) {
             $scope.testData = response['features'];
             for (x in response['features']) {
                 data = {id: 'eq'+x, title: $scope.testData[x]['properties']['title'], show: false,
-                        content: 'mag: ' + $scope.testData[x]['properties']['mag'],
+                        magnitude: $scope.testData[x]['properties']['mag'],
+                        time: $scope.testData[x]['properties']['time'],
+                        place: $scope.testData[x]['properties']['place'],
+                        detail: $scope.testData[x]['properties']['detail'],
                         latitude: $scope.testData[x]['geometry']['coordinates'][1],
                         longitude: $scope.testData[x]['geometry']['coordinates'][0]}
                 $scope.markers.earthquakes.push(data);
@@ -42,7 +45,7 @@ appControllers.controller('mapController', function($scope, USGSApi, TsunamiApi,
 
     $scope.tsunamiData = TsunamiApi.getUSTusnamis()
         .success(function(data) {
-            $scope.tsunamiData = data;
+            //$scope.tsunamiData = data;
         })
         .error(function(errorResponse){
                 $scope.tsunamiData = 'Error: ' + errorResponse;
